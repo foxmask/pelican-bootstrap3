@@ -4,7 +4,7 @@
 {% endif %}
 <html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock %}"{% if USE_OPEN_GRAPH %} prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml"{% endif %}>
 <head>
-    <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+    <title>{% block title %}{{ AUTHOR }} - {{ SITENAME }}{% endblock %}</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -97,6 +97,12 @@
     {% if category and CATEGORY_FEED_ATOM %}
         <link href="{{ SITEURL }}/{{ CATEGORY_FEED_ATOM|format(category.slug) }}" type="application/atom+xml" rel="alternate"
               title="{{ SITENAME }} {{ category }} ATOM Feed"/>
+    {% endif %}
+
+    {% if RSS %}
+		{% for name, link in RSS %}
+            <link href="{{ link }}" type="application/rss+xml" rel="alternate" title="{{ SITENAME }} - {{ name }}"/>
+		{% endfor %}
     {% endif %}
 
 </head>

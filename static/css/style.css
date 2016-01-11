@@ -1,5 +1,6 @@
 body {
     padding-top: 70px;
+	color: #141412;
 }
 
 #sidebar .list-group, #sidebar .list-group-item {
@@ -59,9 +60,27 @@ body {
     -ms-hyphens: auto;
     hyphens: auto;
 }
+a {
+	color: #ac0404;
+	text-decoration: none;
+}
 
-#sidebar a {
-    color: inherit;
+a:visited {
+	color: #ac0404;
+}
+
+a:focus {
+	outline: thin dotted;
+}
+
+a:active,
+a:hover {
+	color: #ea9629;
+	outline: 0;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 .icon-label {
@@ -72,10 +91,6 @@ body {
    lists in the sidebar. To change, override in your CUSTOM_CSS           */
 #sidebar #social i {
     margin-right: 3px;
-}
-
-a, a:hover {
-    color: inherit;
 }
 
 .entry-content a {
